@@ -1,0 +1,14 @@
+services:
+  rschs-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    command: npm run start
+    environment:
+      TZ: Europe/Moscow
+    restart: unless-stopped
+    volumes:
+      - ./data:/root/app/app/data
+    ports:
+      - "3000:3000"
